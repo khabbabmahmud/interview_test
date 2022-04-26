@@ -11,6 +11,10 @@
     
     // get all cart data from session start
     if( isset($_POST['allData']) ){
+
+        //re-index the array
+        $_SESSION['cart'] = array_values($_SESSION['cart']);
+
         $data = "";
         $total = 0;
         for($i = 0 ; $i < count($_SESSION['cart']) ; $i++) {
@@ -29,7 +33,7 @@
                         
                         <td>'.$_SESSION['cart'][$i]['quantity'] *  $_SESSION['cart'][$i]['unit_price'].'</td>
                         
-						<td><a title="Delete" id="delete'.$i.'" class="btn btn-sm btn-danger">Delete</a></td>
+						<td><a class="btn btn-sm btn-danger" onclick="deleteData('.$i.')">Delete</a></td>
 						
 					</tr>';
         }
@@ -59,6 +63,12 @@
     // updateCard end
 
     // delete-card-item Start
+    if( isset($_POST['id']) ){
+        $id = $_POST['id'];
+        unset($_SESSION['cart'][$id]);
+        exit;
+    }
+    // delete-card-item end
 
 
 
@@ -123,7 +133,7 @@
 	allData();
 // ==== get all cart data from session end=====//
 
-//=== updateCart start=====//
+//=== update-cart-item start=====//
 function updataData(){
     var product_id = [];
     $('.product_id').each(function(){
@@ -144,7 +154,22 @@ function updataData(){
         }
     });	
 	}
-//==== updateCart end =====//
+//==== update-cart-item end =====//
+
+
+//==== delete-cart-item start =====//
+    function deleteData(id){
+        var id = id;
+        $.ajax({
+            type: "post",
+            data: {id:id},
+            success: function(responseData){
+                allData();
+            }
+        });
+
+    }
+//==== delete-cart-item end =====//
 </script>
 
 
