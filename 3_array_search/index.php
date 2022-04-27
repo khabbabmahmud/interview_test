@@ -1,6 +1,6 @@
 <?php
 session_start();
-$array = array("Khulna", "dhaka", "rajshahi", "cumilla", "barisal", "jessore", "magura", "b.baria", "faridpur", "sylhet", "kisoregonj", "kazipur", "kushtia");
+$array = array("khulna", "dhaka", "rajshahi", "cumilla", "barisal", "jessore", "magura", "b.baria", "faridpur", "sylhet", "kisoregonj", "kazipur", "kushtia");
 
 if( $_SERVER["REQUEST_METHOD"] == "POST"){
    
@@ -59,7 +59,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="row">
             <div class="col-md-12 my-4">
                 <h2>Array Search</h2>
-                <p>Array Elements: [Khulna, dhaka, rajshahi, cumilla, barisal, jessore, magura, b.baria, faridpur, sylhet, kisoregonj, kazipur, kushtia]</p>
+                <p>Array Elements: [khulna, dhaka, rajshahi, cumilla, barisal, jessore, magura, b.baria, faridpur, sylhet, kisoregonj, kazipur, kushtia]</p>
                 <form action="" method="post" class="col-md-4">
                     
                     <div class="form-group my-3">
